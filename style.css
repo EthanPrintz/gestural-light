@@ -1,0 +1,274 @@
+/* CSS Variables */
+:root{
+    --yellow: #e4ae3b;
+    --darkestBlue: #191919;
+    --darkerBlue: #1c1c20;
+    --darkBlue: #1e1e25;
+    --darkishBlue: #2b2b35;
+    --midBlue: #3c3c42;
+    --lightBlue: #5f5f69;
+    --lighterBlue: #9c9cac;
+    --white: #e3e3eb;
+}
+
+html,body{
+    background-color: var(--darkBlue);
+    color: var(--white);
+    font-family: sans-serif;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+*{box-sizing: border-box;}
+
+#titleBar{
+  -webkit-user-select: none;
+  -webkit-app-region: drag;
+  width: 100%;
+  height: 25px;
+  background-color: var(--darkerBlue);
+}
+
+#cueBar{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 16rem;
+    height: 100vh;
+    background-color: var(--darkerBlue);
+    padding-top: 34px;
+}
+    #cueTitle{
+        color: var(--lightBlue);
+        font-size: 1.2rem;
+        font-weight: bold;
+        padding: 0 0.8rem;
+        margin-bottom: 0.4rem;
+    }
+    #cueControls{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        height: 3.4rem;
+        margin-bottom: 3rem;
+    }
+        #cueGo{
+            flex: 3;
+            height: 100%;
+            background-color: #3f503f;
+            align-items: center;
+            justify-content: center;
+            display: flex;
+            font-weight: bold;
+            font-size: 1.7rem;
+            margin: 0.6rem;
+            border-radius: 0.2rem;
+            cursor: pointer;
+        }
+        #cueStop{
+            flex: 2;
+            height: 100%;
+            background-color: #4e3b3b;
+            align-items: center;
+            justify-content: center;
+            display: flex;
+            font-size: 1.4rem;
+            font-weight: bold;
+            margin: 0.6rem;
+            border-radius: 0.2rem;
+            cursor: pointer;
+        }
+    .cue{
+        width: 100%;
+        height: 6rem;
+        border-bottom: 2px solid rgb(15, 15, 15);
+    }
+        .cue:nth-child(3){
+            border-top: 2px solid rgb(15, 15, 15);
+        }
+        .cueLeftBar{
+            background-color: var(--darkishBlue);
+            height: 100%;
+            min-width: 10%;
+            float: left;
+            text-align: center;
+            font-size: 1.2rem;
+            padding-top: 2rem;
+        }
+
+#magicSheet{
+    position: relative;
+    left: 16rem;
+    width: calc(100vw - 16rem);
+    height: 100vh;
+}
+    #magicTitle{
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 0.6rem 0.8rem;
+        color: var(--lightBlue);
+        font-size: 1.2rem;
+        font-weight: bold;
+        height: 2rem;
+    }
+    #statusBar{
+        position: absolute;
+        top: 0;
+        right: 2rem;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+        .statusIcon{
+            width: 1.5rem;
+            height: 1.5rem;
+            margin: 0.4rem;
+            cursor: pointer;
+            position: relative;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+            display: inline-block;
+        }
+            #phoneIcon{background-image: url('./img/phone-link.svg')}
+            #dmxIcon{background-image: url('./img/computer-connect.svg')}
+            #settingsIcon{background-image: url('./img/settings.svg')}
+            .statusIcon:after{
+                position: absolute;
+                top: -0.2rem;
+                right: -0.1rem;
+                content: " ";
+                width: 0.6rem;
+                height: 0.6rem;
+                border-radius: 100%;
+                z-index: 3;
+            }
+                .warningIcon:after{background-color: rgb(190, 118, 59);}
+                .goodIcon:after{background-color: #46743a;}
+                .badIcon:after{background-color: #743232;}
+                #settingsIcon:after{display:none}
+    .statusPopup{
+        position: absolute;
+        top: calc(2rem + 2vh);
+        right: 1rem;
+        width: 15rem;
+        background-color: var(--darkestBlue);
+        text-align: center;
+        border-radius: 0.5rem;
+        display: none;
+        padding: 0 0.5rem 1.2rem 0.5rem;
+    }
+        .statusPopup:after{
+            position: absolute;
+            top: -2.2vh;
+            right: 0;
+            width: 15rem;
+            height: 2.2vh;
+            content: " ";
+        }
+        .statusPopup:before{
+            position: absolute;
+            top: -1.5vh;
+            right: 6.5rem;
+            width: 0; 
+            height: 0; 
+            border-left: 1.5vh solid transparent;
+            border-right: 1.5vh solid transparent;
+            border-bottom: 1.5vh solid var(--darkestBlue);
+            z-index: 3;
+            content: " ";
+            transition: 0.2s;
+        }
+            #dmxPopup:before{right: 3.9rem}
+            #settingsPopup:before{right: 1.3rem}
+            .statusTitle{
+                margin: 1rem 0 0 0;
+                font-size: 1.1rem;
+                color: var(--lightBlue);
+                font-weight: bold;
+            }
+            #qrCode img{
+                width: 10rem;
+                filter: invert(0.9);
+            }
+            #deviceOrientation{
+                width: 14rem;
+                height: 10rem;
+                display: inline-block;
+                background-image: url('./img/phone.svg');
+                background-size: 60%;
+                background-position: center center;
+                background-repeat: no-repeat;
+                display: none;
+                perspective: 400px;
+            }
+            #dmxMenu{
+                padding-top: 0.5rem;
+            }
+                .dmxItem{
+                    width: 100%;
+                    padding: 0.2rem 0;
+                    text-align: left;
+                }
+                    .dmxItemIcon{
+                        float: left;
+                        height: 2rem;
+                        width: 2rem;
+                        background-image: url("./img/usb.svg");
+                        background-size: 80%;
+                        background-position: center center;
+                        background-repeat: no-repeat;
+                    }
+                    .dmxItemName{
+                        font-size: 0.9rem;
+                        font-weight: bold;
+                        color: var(--lightBlue);
+                    }
+                    .dmxItemPath{
+                        font-size: 0.7rem;
+                        color: var(--midBlue);
+                    }
+    #userCircle{
+        position: absolute;
+        top: calc(50% - 1.4rem);
+        left: calc(50% - 1.4rem);
+        width: 1.4rem;
+        height: 1.4rem;
+        border-radius: 100%;
+        background-color: var(--lightBlue);
+    }
+        #userDirection{
+            display: none;
+            transform-origin: top center;
+            position: absolute;
+            top: 0.5rem;
+            left: 0.5rem;
+            width: 0.4rem;
+            height: 7rem;
+            background: linear-gradient(0deg, rgba(205,205,205,0) 10%, rgba(95,95,105,1) 100%);
+        }
+    #lights{
+        
+    }
+        .light{
+            position: absolute;
+            width: 4rem;
+            height: 4rem;
+            background-color: var(--darkestBlue);
+            top: calc(75%);
+            left: calc(50%);
+            border-radius: 0.75rem;
+            z-index: 5;
+            border: 0.3rem solid var(--darkishBlue);
+            transform-origin: 0 -450%;
+        }   
+            .selectedLight{
+                border: 0.3rem solid var(--yellow);
+            }
+            .lightIcon{
+                width: 80%;
+                height: 80%;
+                margin: 10%;
+                fill: grey;
+            }

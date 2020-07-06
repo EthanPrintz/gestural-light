@@ -1,19 +1,60 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
-    <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
-    <title>Hello World!</title>
-  </head>
-  <body>
-    <h1>Hello World!</h1>
-    We are using Node.js <span id="node-version"></span>,
-    Chromium <span id="chrome-version"></span>,
-    and Electron <span id="electron-version"></span>.
 
-    <!-- You can also require other files to run in this process -->
-    <script src="./renderer.js"></script>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src *; script-src 'self' *; style-src	'self' 'unsafe-inline' *; img-src 'self' data: *">
+
+  <link rel="stylesheet" href="style.css">
+  <title>Hello World!</title>
+</head>
+
+<body>
+  <div id="titleBar"></div>
+  <div id="cueBar">
+    <div id="cueTitle">Cues</div>
+    <div id="cueControls">
+      <div id="cueGo">
+        <div>GO</div>
+      </div>
+      <div id="cueStop">
+        <div>STOP</div>
+      </div>
+    </div>
+
+
+  </div>
+  <div id="magicSheet">
+    <div id="magicTitle">Output</div>
+    <div id="statusBar">
+      <div class="statusIcon badIcon" id="phoneIcon"></div>
+      <div class="statusIcon badIcon" id="dmxIcon"></div>
+      <div class="statusIcon badIcon" id="settingsIcon"></div>
+    </div>
+    <div class="statusPopup" id="qrPopup">
+      <div class="statusTitle">Connect Phone to Dashboard</div>
+      <div id="qrCode"></div>
+      <div id="deviceOrientation"></div>
+    </div>
+    <div class="statusPopup" id="dmxPopup">
+      <div class="statusTitle">Connect DMX Interface</div>
+      <div id="dmxMenu"></div>
+    </div>
+    <div class="statusPopup" id="settingsPopup">
+      <div class="statusTitle">Settings</div>
+    </div>
+    <div id="userCircle">
+      <div id="userDirection"></div>
+    </div>
+    <span id="lights">
+      <!-- <div class="light selectedLight" data-light-type="par" data-light-key="1"></div> -->
+    </span>
+  </div>
+
+  <!-- You can also require other files to run in this process -->
+  <script src=" ./renderer.js"></script>
+</body>
+
 </html>

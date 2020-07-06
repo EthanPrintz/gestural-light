@@ -1,0 +1,43 @@
+html,body{
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+    background-color: #232327;
+}
+*{box-sizing: border-box;}
+#onboardingText{
+    color: #4C4C55;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    font-size: 3rem;
+    padding: 10%;
+    font-weight: bold;
+}
+#saveScene{
+    width: 60%;
+    height: 3rem;
+    font-size: 1.5rem;
+    padding: 0.75rem;
+    text-align: center;
+    border-radius: 1rem;
+    background-color: #4C4C55;
+    color: #232327;
+    font-weight: bold;
+    margin: 2rem 20%;
+    display: none;
+}
+.bottomButton{
+    width: 14vh;
+    height: 14vh;
+    background-color: #4C4C55;
+    border-radius: 100%;
+    position: absolute;
+    bottom: 6vh;
+    left: calc(50vw - 7vh);
+    background-size: 70%;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+    .enableMotion{background-image: url('./img/gyro.svg')}
+    .addLight{background-image: url('./img/add.svg')}

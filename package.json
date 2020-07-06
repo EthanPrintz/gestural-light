@@ -25,7 +25,7 @@
   "dependencies": {
     "color-convert": "^2.0.1",
     "express": "^4.17.1",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "jquery-ui": "^1.12.1",
     "portfinder": "^1.0.25",
     "qrcode": "^1.4.4",
